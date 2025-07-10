@@ -4,125 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About me</title>
-  
+
   <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Kanit', sans-serif;
-      background: #ffe6f0;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-    }
-
-    .container {
-      display: grid;
-      place-items: center;
-      min-height: 100vh;
-      position: relative;
-      padding: 20px;
-    }
-
-    .card {
-      background: #fff0f6;
-      border-radius: 25px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      padding: 60px 30px 40px;
-      max-width: 650px;
-      width: 90%;
-      text-align: center;
-      opacity: 0;
-      transform: translateX(100px);
-      transition: all 0.8s ease;
-      display: none;
-    }
-
-    .card.active {
-      opacity: 1;
-      transform: translateX(0);
-      display: block;
-    }
-
-    .card::before {
-      content: attr(data-title);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #ff99c8;
-      color: white;
-      font-weight: bold;
-      padding: 12px 0;
-      border-top-left-radius: 25px;
-      border-top-right-radius: 25px;
-      font-size: 1.2rem;
-    }
-
-    h1 {
-      color: #ff6fa1;
-      margin-bottom: 10px;
-      font-size: 1.0rem;
-      word-break: break-word;
-    }
-
-    p {
-      font-size: 0.9rem;
-      margin-bottom: 3px;
-      color: #555;
-      padding: 0 10px;
-    }
-
-    .btn {
-      font-family: 'Kanit', sans-serif;
-      margin-top: 25px;
-      padding: 12px 24px;
-      background-color: #ff99c8;
-      border: none;
-      border-radius: 30px;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #ff6fa1;
-      transform: scale(1.05);
-    }
-
-    .typing {
-      display: inline-block;
-      border-right: 2px solid #ff6fa1;
-      white-space: nowrap;
-      overflow: hidden;
-      animation: blink-caret 0.75s step-end infinite;
-      max-width: 100%;
-    }
-
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: #ff6fa1; }
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-      .card::before {
-        font-size: 1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -137,47 +22,16 @@
 
     <div class="card" id="infoCard" data-title="ABOUT ME">
       <h1><i class="fas fa-user"></i> ข้อมูลส่วนตัว</h1>
-      <p>⟡ ยุน / ยุนยุน / ซียุน whatever you like</p>
-      <p>อายุ 18↓ อายุไม่เกี่ยวใส่เดี่ยวได้หมด</p>
-      <p>สต.เรียน jpn แต่เขียนโค้ดเป็นงานอดิเรกค่ะ ฮ่า</p>
-      <p><br>ตอนนี้เราเล่นแค่ HSR ค่ะ ⸜(｡˃ ᵕ ˂ )⸝♡<br>มาเมคเฟรนได้น้ะคะจุ๊ฟๆ เราปั้นตัวไก่มากสุดความสามารถแล้วค่ะ</p>
+      <p>⟡ ยุน / ยุนยุน / siyun. whatever you like</p>
+      <p>อายุ 18↓ เด็กโข่ง</p>
+      <p>เรียน jpn แต่เขียนโค้ดเป็นงานอดิเรกค่ะ</p>
+      <p><br>ตอนนี้เราเล่นแค่ HSR ค่ะ ⸜(｡˃ ᵕ ˂ )⸝♡<br>มาเมคเฟรนได้นะคะจุ๊ฟๆ</p>
       <button class="btn" onclick="showCard('introCard')">
         <i class="fas fa-arrow-left"></i> ย้อนกลับ
       </button>
     </div>
   </div>
 
-  <script>
-    const typedText = document.getElementById("typed-text");
-    const text = "﹒✦ 처음 보는 사람들도 환영해요〜！ .𖥔 ݁ ₍^. .^₎Ⳋ";
-    let i = 0;
-
-    function type() {
-      if (i < text.length) {
-        typedText.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, 50);
-      }
-    }
-
-    window.onload = () => {
-      setTimeout(() => {
-        type();
-      }, 300);
-    }
-
-    function showCard(cardIdToShow) {
-      const allCards = document.querySelectorAll('.card');
-      allCards.forEach(card => {
-        card.classList.remove('active');
-      });
-
-      const nextCard = document.getElementById(cardIdToShow);
-      setTimeout(() => {
-        nextCard.classList.add('active');
-      }, 50);
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
